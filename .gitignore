@@ -1,0 +1,11 @@
+node_modules/
+dist/
+data/
+uploads/
+.env
+*.log
+# material de referência do protótipo (não faz parte do backend)
+Rango Mobile App Prototype.zip
+Rango Mobile App Prototype/
+.claude
+
