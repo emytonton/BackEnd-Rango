@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "3333:3333"
+    environment:
+      JWT_SECRET: ${JWT_SECRET:-dev-only-secret-change-me}
+      CORS_ORIGINS: ${CORS_ORIGINS:-*}
+      ORDER_STEP_SECONDS: ${ORDER_STEP_SECONDS:-20}
+    volumes:
+      - rango-data:/app/data
+      - rango-uploads:/app/uploads
+
+volumes:
+  rango-data:
+  rango-uploads:
