@@ -1,6 +1,6 @@
 # Análise do protótipo e plano de implementação
 
-> Início planejado do projeto: **21/09/2026**. As datas dos commits são as datas reais em que o trabalho foi feito.
+
 
 Fonte analisada: protótipo navegável **Rango Delivery** (`Rango Delivery.dc.html` + `support.js`), capturas
 `screens/home-check*.png` e o briefing original (`uploads/message.txt`). O protótipo é um app React de uma tela
