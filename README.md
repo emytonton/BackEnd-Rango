@@ -1,11 +1,9 @@
 # Rango · Backend
 
-API do app de delivery **Rango**, construída a partir do protótipo mobile navegável (Claude Design).
+API do app de delivery **Rango**, construída a partir do protótipo mobile navegável.
 Ela substitui todos os dados fictícios do protótipo: catálogo, carrinho, pedidos, favoritos, notificações,
 perfil e preferências passam a ser persistidos e validados no servidor.
 
-- Projeto acadêmico, **não é para produção**. A prioridade é ser simples de rodar sem abrir mão de qualidade.
-- Início planejado: 21/09/2026.
 
 ## Stack
 
@@ -187,6 +185,5 @@ exemplos e o mapeamento tela → endpoint estão no [guia de integração](docs/
   `imageUrl` fica `null`.
 - **Offline/cache e recorte de foto ficam no app** (veja o guia de integração).
 - Sem rate limiting, sem painel administrativo para o catálogo e sem exclusão de conta, porque nada disso aparece no protótipo.
-- `better-sqlite3` está fixado na versão 11, que tem binário pré-compilado para Node 20 no Windows. As versões 12/13
-  exigiriam toolchain C++ para compilar.
-- Docker não foi validado localmente (daemon parado).
+
+
