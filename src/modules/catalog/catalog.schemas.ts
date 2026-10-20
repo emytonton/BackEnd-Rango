@@ -26,7 +26,7 @@ export const productSummaryDto = z.object({
   oldPrice: z.number().nullable().describe('Preço "de" quando o produto está em oferta'),
   rating: z.number(),
   deliveryTime: z.object({ min: z.number().int(), max: z.number().int() }).describe('Minutos'),
-  imageUrl: z.string().nullable().describe('null nos dados de demonstração — use imageHue para o placeholder'),
+  imageUrl: z.string().nullable().describe('Caminho relativo à base da API, ex.: /static/products/p1.jpg; null usa imageHue como placeholder'),
   imageHue: z.number().int().describe('Matiz (0-360) do placeholder colorido usado no protótipo'),
   tags: z.array(sectionField),
   isAvailable: z.boolean(),

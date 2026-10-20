@@ -17,6 +17,7 @@ ENV NODE_ENV=development \
 COPY --from=build /app/package.json ./
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
+COPY public ./public
 RUN mkdir -p /app/data /app/uploads && chown -R node:node /app/data /app/uploads
 USER node
 EXPOSE 3333

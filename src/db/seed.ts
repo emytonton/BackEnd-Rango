@@ -37,13 +37,14 @@ export function seedCatalog(db: DB): void {
 
     const upsertProduct = db.prepare(
       `INSERT INTO products (id, name, restaurant, category_id, description, ingredients, price_cents, old_price_cents,
-         rating, delivery_min, delivery_max, image_hue, position, search_text)
+         rating, delivery_min, delivery_max, image_hue, image_url, position, search_text)
        VALUES (@id, @name, @restaurant, @categoryId, @description, @ingredients, @price, @oldPrice,
-         @rating, @min, @max, @hue, @position, @searchText)
+         @rating, @min, @max, @hue, @imageUrl, @position, @searchText)
        ON CONFLICT (id) DO UPDATE SET name = excluded.name, restaurant = excluded.restaurant,
          category_id = excluded.category_id, description = excluded.description, ingredients = excluded.ingredients,
          price_cents = excluded.price_cents, old_price_cents = excluded.old_price_cents, rating = excluded.rating,
          delivery_min = excluded.delivery_min, delivery_max = excluded.delivery_max, image_hue = excluded.image_hue,
+         image_url = excluded.image_url,
          position = excluded.position, search_text = excluded.search_text`,
     );
     const clearTags = db.prepare('DELETE FROM product_tags WHERE product_id = ?');
@@ -62,6 +63,7 @@ export function seedCatalog(db: DB): void {
         min: p.time[0],
         max: p.time[1],
         hue: p.hue,
+        imageUrl: p.image ?? null,
         position: i + 1,
         searchText: normalize(`${p.name} ${p.restaurant} ${p.category}`),
       });

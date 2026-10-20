@@ -181,8 +181,9 @@ exemplos e o mapeamento tela → endpoint estão no [guia de integração](docs/
 - **Sem push nativo (FCM/APNs).** O app usa polling de `/notifications` e notificação local.
 - **Sem gateway de pagamento.** Pedidos são aprovados na hora.
 - **Restaurante e entregador são simulados.** A timeline avança por tempo; o entregador vem de uma lista fixa.
-- **Imagens de produtos:** o catálogo de demonstração usa `imageHue` (placeholder colorido do protótipo);
-  `imageUrl` fica `null`.
+- **Imagens de produtos:** as fotos do catálogo de demonstração ficam em `public/products` (fotos livres do Pexels)
+  e são servidas em `/static/products/<id>.jpg`. O `imageUrl` é relativo à base da API; `imageHue` continua como
+  placeholder enquanto a imagem carrega ou quando não há foto.
 - **Offline/cache e recorte de foto ficam no app** (veja o guia de integração).
 - Sem rate limiting, sem painel administrativo para o catálogo e sem exclusão de conta, porque nada disso aparece no protótipo.
 

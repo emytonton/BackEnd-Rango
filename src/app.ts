@@ -75,6 +75,7 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<BuiltApp>
 
   fs.mkdirSync(path.resolve(config.uploadDir), { recursive: true });
   await app.register(fastifyStatic, { root: path.resolve(config.uploadDir), prefix: '/uploads/', decorateReply: false });
+  await app.register(fastifyStatic, { root: path.resolve('public'), prefix: '/static/', decorateReply: false });
 
   await app.register(swagger, {
     openapi: {
