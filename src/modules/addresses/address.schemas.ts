@@ -47,7 +47,10 @@ export const addressDto = z.object({
   line: z.string().describe('Linha principal pronta para exibir: "Rua das Palmeiras, 128 · apto 42"'),
   cityLine: z.string().describe('"Pinheiros · São Paulo"'),
   isSelected: z.boolean(),
+  mapImageUrl: z.string().nullable().describe('Imagem da área do mapa, relativa à base da API'),
 });
+
+const MAP_IMAGE_URL = '/static/maps/area.jpg';
 
 export type AddressDto = z.infer<typeof addressDto>;
 
@@ -71,5 +74,6 @@ export function toAddressDto(a: AddressRow): AddressDto {
     line: formatAddressLine(a),
     cityLine: formatCityLine(a),
     isSelected: !!a.is_selected,
+    mapImageUrl: MAP_IMAGE_URL,
   };
 }
