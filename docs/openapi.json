@@ -2259,6 +2259,11 @@
                           },
                           "isSelected": {
                             "type": "boolean"
+                          },
+                          "mapImageUrl": {
+                            "nullable": true,
+                            "description": "Imagem da área do mapa, relativa à base da API",
+                            "type": "string"
                           }
                         },
                         "required": [
@@ -2271,7 +2276,8 @@
                           "city",
                           "line",
                           "cityLine",
-                          "isSelected"
+                          "isSelected",
+                          "mapImageUrl"
                         ],
                         "additionalProperties": false
                       }
@@ -2447,6 +2453,11 @@
                     },
                     "isSelected": {
                       "type": "boolean"
+                    },
+                    "mapImageUrl": {
+                      "nullable": true,
+                      "description": "Imagem da área do mapa, relativa à base da API",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -2459,7 +2470,8 @@
                     "city",
                     "line",
                     "cityLine",
-                    "isSelected"
+                    "isSelected",
+                    "mapImageUrl"
                   ],
                   "additionalProperties": false
                 }
@@ -2686,6 +2698,11 @@
                     },
                     "isSelected": {
                       "type": "boolean"
+                    },
+                    "mapImageUrl": {
+                      "nullable": true,
+                      "description": "Imagem da área do mapa, relativa à base da API",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -2698,7 +2715,8 @@
                     "city",
                     "line",
                     "cityLine",
-                    "isSelected"
+                    "isSelected",
+                    "mapImageUrl"
                   ],
                   "additionalProperties": false
                 }
@@ -3090,6 +3108,11 @@
                     },
                     "isSelected": {
                       "type": "boolean"
+                    },
+                    "mapImageUrl": {
+                      "nullable": true,
+                      "description": "Imagem da área do mapa, relativa à base da API",
+                      "type": "string"
                     }
                   },
                   "required": [
@@ -3102,7 +3125,8 @@
                     "city",
                     "line",
                     "cityLine",
-                    "isSelected"
+                    "isSelected",
+                    "mapImageUrl"
                   ],
                   "additionalProperties": false
                 }
@@ -3883,6 +3907,11 @@
                         },
                         "isSelected": {
                           "type": "boolean"
+                        },
+                        "mapImageUrl": {
+                          "nullable": true,
+                          "description": "Imagem da área do mapa, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
@@ -3895,7 +3924,8 @@
                         "city",
                         "line",
                         "cityLine",
-                        "isSelected"
+                        "isSelected",
+                        "mapImageUrl"
                       ],
                       "additionalProperties": false
                     },
@@ -4021,7 +4051,7 @@
                                 },
                                 "imageUrl": {
                                   "nullable": true,
-                                  "description": "null nos dados de demonstração — use imageHue para o placeholder",
+                                  "description": "Caminho relativo à base da API, ex.: /static/products/p1.jpg; null usa imageHue como placeholder",
                                   "type": "string"
                                 },
                                 "imageHue": {
@@ -4456,7 +4486,7 @@
                           },
                           "imageUrl": {
                             "nullable": true,
-                            "description": "null nos dados de demonstração — use imageHue para o placeholder",
+                            "description": "Caminho relativo à base da API, ex.: /static/products/p1.jpg; null usa imageHue como placeholder",
                             "type": "string"
                           },
                           "imageHue": {
@@ -4752,7 +4782,7 @@
                     },
                     "imageUrl": {
                       "nullable": true,
-                      "description": "null nos dados de demonstração — use imageHue para o placeholder",
+                      "description": "Caminho relativo à base da API, ex.: /static/products/p1.jpg; null usa imageHue como placeholder",
                       "type": "string"
                     },
                     "imageHue": {
@@ -5474,7 +5504,7 @@
                           },
                           "imageUrl": {
                             "nullable": true,
-                            "description": "null nos dados de demonstração — use imageHue para o placeholder",
+                            "description": "Caminho relativo à base da API, ex.: /static/products/p1.jpg; null usa imageHue como placeholder",
                             "type": "string"
                           },
                           "imageHue": {
@@ -8574,13 +8604,23 @@
                         },
                         "vehicle": {
                           "type": "string"
+                        },
+                        "photoUrl": {
+                          "nullable": true,
+                          "description": "Foto do entregador, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
                         "name",
-                        "vehicle"
+                        "vehicle",
+                        "photoUrl"
                       ],
                       "additionalProperties": false
+                    },
+                    "mapImageUrl": {
+                      "type": "string",
+                      "description": "Imagem do mapa do rastreio, relativa à base da API"
                     }
                   },
                   "required": [
@@ -8603,7 +8643,8 @@
                     "address",
                     "payment",
                     "amounts",
-                    "courier"
+                    "courier",
+                    "mapImageUrl"
                   ],
                   "additionalProperties": false
                 }
@@ -9448,13 +9489,23 @@
                         },
                         "vehicle": {
                           "type": "string"
+                        },
+                        "photoUrl": {
+                          "nullable": true,
+                          "description": "Foto do entregador, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
                         "name",
-                        "vehicle"
+                        "vehicle",
+                        "photoUrl"
                       ],
                       "additionalProperties": false
+                    },
+                    "mapImageUrl": {
+                      "type": "string",
+                      "description": "Imagem do mapa do rastreio, relativa à base da API"
                     }
                   },
                   "required": [
@@ -9477,7 +9528,8 @@
                     "address",
                     "payment",
                     "amounts",
-                    "courier"
+                    "courier",
+                    "mapImageUrl"
                   ],
                   "additionalProperties": false
                 }
@@ -9975,13 +10027,23 @@
                         },
                         "vehicle": {
                           "type": "string"
+                        },
+                        "photoUrl": {
+                          "nullable": true,
+                          "description": "Foto do entregador, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
                         "name",
-                        "vehicle"
+                        "vehicle",
+                        "photoUrl"
                       ],
                       "additionalProperties": false
+                    },
+                    "mapImageUrl": {
+                      "type": "string",
+                      "description": "Imagem do mapa do rastreio, relativa à base da API"
                     }
                   },
                   "required": [
@@ -10004,7 +10066,8 @@
                     "address",
                     "payment",
                     "amounts",
-                    "courier"
+                    "courier",
+                    "mapImageUrl"
                   ],
                   "additionalProperties": false
                 }

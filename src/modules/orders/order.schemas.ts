@@ -4,7 +4,14 @@ import { paginationMeta, paginationQuery } from '../../lib/pagination';
 import { addonDto } from '../catalog/catalog.schemas';
 import { cartDto } from '../cart/cart.schemas';
 import { paymentTypeField } from '../payment-methods/payment-method.schemas';
-import { MAX_CANCELLABLE_STEP, ORDER_STEPS, STEP_HINTS, formatOrderCode, statusLabel } from './order-status';
+import {
+  MAX_CANCELLABLE_STEP,
+  ORDER_STEPS,
+  STEP_HINTS,
+  courierPhotoUrl,
+  formatOrderCode,
+  statusLabel,
+} from './order-status';
 import type { OrderEventRow, OrderItemRow, OrderRow } from './order.repository';
 
 export const createOrderBody = z.object({
@@ -75,8 +82,15 @@ export const orderDetailDto = orderSummaryDto.extend({
     total: z.number(),
     couponCode: z.string().nullable(),
   }),
-  courier: z.object({ name: z.string(), vehicle: z.string() }),
+  courier: z.object({
+    name: z.string(),
+    vehicle: z.string(),
+    photoUrl: z.string().nullable().describe('Foto do entregador, relativa à base da API'),
+  }),
+  mapImageUrl: z.string().describe('Imagem do mapa do rastreio, relativa à base da API'),
 });
+
+const MAP_IMAGE_URL = '/static/maps/area.jpg';
 
 export const orderListResponse = z.object({ data: z.array(orderSummaryDto), meta: paginationMeta });
 
@@ -152,6 +166,7 @@ export function toOrderDetail(o: OrderRow, items: OrderItemRow[], events: OrderE
       total: toReais(o.total_cents),
       couponCode: o.coupon_code,
     },
-    courier: { name: o.courier_name, vehicle: o.courier_vehicle },
+    courier: { name: o.courier_name, vehicle: o.courier_vehicle, photoUrl: courierPhotoUrl(o.courier_name) },
+    mapImageUrl: MAP_IMAGE_URL,
   };
 }

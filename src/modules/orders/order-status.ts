@@ -65,7 +65,11 @@ export function parseOrderCode(value: string): number | null {
 }
 
 export const COURIERS = [
-  { name: 'Rafael Souza', vehicle: 'Honda CG 160' },
-  { name: 'Juliana Prado', vehicle: 'Yamaha Factor 150' },
-  { name: 'Diego Martins', vehicle: 'Bicicleta elétrica' },
+  { name: 'Rafael Souza', vehicle: 'Honda CG 160', photoUrl: '/static/couriers/rafael.jpg' },
+  { name: 'Juliana Prado', vehicle: 'Yamaha Factor 150', photoUrl: '/static/couriers/juliana.jpg' },
+  { name: 'Diego Martins', vehicle: 'Bicicleta elétrica', photoUrl: '/static/couriers/diego.jpg' },
 ] as const;
+
+export function courierPhotoUrl(name: string): string | null {
+  return COURIERS.find((c) => c.name === name)?.photoUrl ?? null;
+}

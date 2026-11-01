@@ -147,7 +147,8 @@ Resposta `201` (resumida):
   "address": { "id": 1, "label": "Casa", "line": "Rua das Palmeiras, 128 · apto 42", "cityLine": "Pinheiros · São Paulo" },
   "payment": { "type": "pix", "label": "PIX", "detail": "Aprovação imediata", "changeFor": null },
   "amounts": { "subtotal": 38.9, "deliveryFee": 7.9, "discount": 0, "total": 46.8, "couponCode": null },
-  "courier": { "name": "Juliana Prado", "vehicle": "Yamaha Factor 150" }
+  "courier": { "name": "Juliana Prado", "vehicle": "Yamaha Factor 150", "photoUrl": "/static/couriers/juliana.jpg" },
+  "mapImageUrl": "/static/maps/area.jpg"
 }
 ```
 
