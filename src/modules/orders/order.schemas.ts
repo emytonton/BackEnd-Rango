@@ -41,7 +41,11 @@ export const orderSummaryDto = z.object({
   total: z.number(),
   itemCount: z.number().int(),
   itemsSummary: z.string().describe('"1× Burger duplo cheddar, 2× Limonada suíça"'),
-  thumbnail: z.object({ productId: z.string().nullable(), imageHue: z.number().int() }),
+  thumbnail: z.object({
+    productId: z.string().nullable(),
+    imageHue: z.number().int(),
+    imageUrl: z.string().nullable().describe('Foto do primeiro item, relativa à base da API'),
+  }),
 });
 
 export const orderDetailDto = orderSummaryDto.extend({
@@ -66,6 +70,7 @@ export const orderDetailDto = orderSummaryDto.extend({
       productId: z.string().nullable(),
       name: z.string(),
       imageHue: z.number().int(),
+      imageUrl: z.string().nullable(),
       quantity: z.number().int(),
       unitPrice: z.number(),
       total: z.number(),
@@ -114,7 +119,11 @@ export function toOrderSummary(o: OrderRow, items: OrderItemRow[]): OrderSummary
     total: toReais(o.total_cents),
     itemCount: items.reduce((n, i) => n + i.quantity, 0),
     itemsSummary: items.map((i) => `${i.quantity}× ${i.product_name}`).join(', '),
-    thumbnail: { productId: first?.product_id ?? null, imageHue: first?.image_hue ?? 30 },
+    thumbnail: {
+      productId: first?.product_id ?? null,
+      imageHue: first?.image_hue ?? 30,
+      imageUrl: first?.image_url ?? null,
+    },
   };
 }
 
@@ -145,6 +154,7 @@ export function toOrderDetail(o: OrderRow, items: OrderItemRow[], events: OrderE
         productId: i.product_id,
         name: i.product_name,
         imageHue: i.image_hue,
+        imageUrl: i.image_url,
         quantity: i.quantity,
         unitPrice: toReais(i.unit_price_cents),
         total: toReais(i.unit_price_cents * i.quantity),

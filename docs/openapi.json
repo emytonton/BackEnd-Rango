@@ -8363,11 +8363,17 @@
                           "type": "integer",
                           "minimum": -9007199254740991,
                           "maximum": 9007199254740991
+                        },
+                        "imageUrl": {
+                          "nullable": true,
+                          "description": "Foto do primeiro item, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
                         "productId",
-                        "imageHue"
+                        "imageHue",
+                        "imageUrl"
                       ],
                       "additionalProperties": false
                     },
@@ -8458,6 +8464,10 @@
                             "minimum": -9007199254740991,
                             "maximum": 9007199254740991
                           },
+                          "imageUrl": {
+                            "nullable": true,
+                            "type": "string"
+                          },
                           "quantity": {
                             "type": "integer",
                             "minimum": -9007199254740991,
@@ -8500,6 +8510,7 @@
                           "productId",
                           "name",
                           "imageHue",
+                          "imageUrl",
                           "quantity",
                           "unitPrice",
                           "total",
@@ -8986,11 +8997,17 @@
                                 "type": "integer",
                                 "minimum": -9007199254740991,
                                 "maximum": 9007199254740991
+                              },
+                              "imageUrl": {
+                                "nullable": true,
+                                "description": "Foto do primeiro item, relativa à base da API",
+                                "type": "string"
                               }
                             },
                             "required": [
                               "productId",
-                              "imageHue"
+                              "imageHue",
+                              "imageUrl"
                             ],
                             "additionalProperties": false
                           }
@@ -9248,11 +9265,17 @@
                           "type": "integer",
                           "minimum": -9007199254740991,
                           "maximum": 9007199254740991
+                        },
+                        "imageUrl": {
+                          "nullable": true,
+                          "description": "Foto do primeiro item, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
                         "productId",
-                        "imageHue"
+                        "imageHue",
+                        "imageUrl"
                       ],
                       "additionalProperties": false
                     },
@@ -9343,6 +9366,10 @@
                             "minimum": -9007199254740991,
                             "maximum": 9007199254740991
                           },
+                          "imageUrl": {
+                            "nullable": true,
+                            "type": "string"
+                          },
                           "quantity": {
                             "type": "integer",
                             "minimum": -9007199254740991,
@@ -9385,6 +9412,7 @@
                           "productId",
                           "name",
                           "imageHue",
+                          "imageUrl",
                           "quantity",
                           "unitPrice",
                           "total",
@@ -9786,11 +9814,17 @@
                           "type": "integer",
                           "minimum": -9007199254740991,
                           "maximum": 9007199254740991
+                        },
+                        "imageUrl": {
+                          "nullable": true,
+                          "description": "Foto do primeiro item, relativa à base da API",
+                          "type": "string"
                         }
                       },
                       "required": [
                         "productId",
-                        "imageHue"
+                        "imageHue",
+                        "imageUrl"
                       ],
                       "additionalProperties": false
                     },
@@ -9881,6 +9915,10 @@
                             "minimum": -9007199254740991,
                             "maximum": 9007199254740991
                           },
+                          "imageUrl": {
+                            "nullable": true,
+                            "type": "string"
+                          },
                           "quantity": {
                             "type": "integer",
                             "minimum": -9007199254740991,
@@ -9923,6 +9961,7 @@
                           "productId",
                           "name",
                           "imageHue",
+                          "imageUrl",
                           "quantity",
                           "unitPrice",
                           "total",

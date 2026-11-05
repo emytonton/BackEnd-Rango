@@ -69,7 +69,7 @@ POST /auth/login { email, password, keepSignedIn }
 | Checkout | `GET /cart` (resumo), `GET /addresses`, `GET /payment-methods`, `POST /orders` |
 | Endereços | `GET/POST/PATCH/DELETE /addresses`, "Usar este endereço" → `POST /addresses/:id/select` |
 | Pedido confirmado / Acompanhar | resposta do `POST /orders`; depois polling de `GET /orders/:id` (5–10 s) enquanto `status = "live"` |
-| Meus pedidos | `GET /orders?group=live` e `GET /orders?group=past` |
+| Meus pedidos | `GET /orders?group=live` e `GET /orders?group=past`; `thumbnail.imageUrl` é a foto do primeiro item |
 | Detalhe do pedido | `GET /orders/:id` (aceita `RG-10482` ou `10482`); "Pedir novamente" → `POST /orders/:id/reorder` → tela Carrinho |
 | Favoritos | `GET /favorites` |
 | Notificações | `GET /notifications`, `POST /notifications/:id/read`, `POST /notifications/read-all`; toque com `orderId` → Acompanhar |
@@ -143,7 +143,7 @@ Resposta `201` (resumida):
     { "step": 2, "label": "Em preparação", "state": "upcoming", "reachedAt": null }
   ],
   "estimatedDelivery": { "minMinutes": 25, "maxMinutes": 35, "latestAt": "2026-09-21T20:17:00.000Z" },
-  "items": [{ "productId": "p1", "name": "Burger duplo cheddar", "quantity": 1, "unitPrice": 38.9, "total": 38.9, "addons": [{ "id": "a1", "name": "Bacon extra", "price": 4 }], "notes": "", "imageHue": 48 }],
+  "items": [{ "productId": "p1", "name": "Burger duplo cheddar", "quantity": 1, "unitPrice": 38.9, "total": 38.9, "addons": [{ "id": "a1", "name": "Bacon extra", "price": 4 }], "notes": "", "imageHue": 48, "imageUrl": "/static/products/p1.jpg" }],
   "address": { "id": 1, "label": "Casa", "line": "Rua das Palmeiras, 128 · apto 42", "cityLine": "Pinheiros · São Paulo" },
   "payment": { "type": "pix", "label": "PIX", "detail": "Aprovação imediata", "changeFor": null },
   "amounts": { "subtotal": 38.9, "deliveryFee": 7.9, "discount": 0, "total": 46.8, "couponCode": null },
