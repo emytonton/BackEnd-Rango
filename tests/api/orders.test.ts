@@ -61,7 +61,7 @@ describe('checkout (POST /orders)', () => {
       estimatedDelivery: { minMinutes: 25, maxMinutes: 35 },
     });
     expect(order.timeline.map((t: { state: string }) => t.state)).toEqual(['done', 'current', 'upcoming', 'upcoming', 'upcoming']);
-    expect(order.items[0]).toMatchObject({ name: 'Burger duplo cheddar', unitPrice: 38.9, addons: [{ id: 'a1' }] });
+    expect(order.items[0]).toMatchObject({ name: 'Burger duplo cheddar', restaurant: 'Casa do Burger', unitPrice: 38.9, addons: [{ id: 'a1' }] });
 
     const cart = (await call('GET', '/cart')).json();
     expect(cart.items).toEqual([]);

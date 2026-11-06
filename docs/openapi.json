@@ -8459,6 +8459,10 @@
                           "name": {
                             "type": "string"
                           },
+                          "restaurant": {
+                            "nullable": true,
+                            "type": "string"
+                          },
                           "imageHue": {
                             "type": "integer",
                             "minimum": -9007199254740991,
@@ -8509,6 +8513,7 @@
                         "required": [
                           "productId",
                           "name",
+                          "restaurant",
                           "imageHue",
                           "imageUrl",
                           "quantity",
@@ -9361,6 +9366,10 @@
                           "name": {
                             "type": "string"
                           },
+                          "restaurant": {
+                            "nullable": true,
+                            "type": "string"
+                          },
                           "imageHue": {
                             "type": "integer",
                             "minimum": -9007199254740991,
@@ -9411,6 +9420,7 @@
                         "required": [
                           "productId",
                           "name",
+                          "restaurant",
                           "imageHue",
                           "imageUrl",
                           "quantity",
@@ -9910,6 +9920,10 @@
                           "name": {
                             "type": "string"
                           },
+                          "restaurant": {
+                            "nullable": true,
+                            "type": "string"
+                          },
                           "imageHue": {
                             "type": "integer",
                             "minimum": -9007199254740991,
@@ -9960,6 +9974,7 @@
                         "required": [
                           "productId",
                           "name",
+                          "restaurant",
                           "imageHue",
                           "imageUrl",
                           "quantity",

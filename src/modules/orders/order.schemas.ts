@@ -69,6 +69,7 @@ export const orderDetailDto = orderSummaryDto.extend({
     z.object({
       productId: z.string().nullable(),
       name: z.string(),
+      restaurant: z.string().nullable(),
       imageHue: z.number().int(),
       imageUrl: z.string().nullable(),
       quantity: z.number().int(),
@@ -153,6 +154,7 @@ export function toOrderDetail(o: OrderRow, items: OrderItemRow[], events: OrderE
       return {
         productId: i.product_id,
         name: i.product_name,
+        restaurant: i.restaurant,
         imageHue: i.image_hue,
         imageUrl: i.image_url,
         quantity: i.quantity,

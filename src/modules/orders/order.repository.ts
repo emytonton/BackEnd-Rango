@@ -37,6 +37,7 @@ export interface OrderItemRow {
   product_name: string;
   image_hue: number;
   image_url: string | null;
+  restaurant: string | null;
   quantity: number;
   unit_price_cents: number;
   addons_json: string;
@@ -50,7 +51,7 @@ export interface OrderEventRow {
 }
 
 export type NewOrder = Omit<OrderRow, 'id' | 'updated_at'> & { id?: number };
-export type NewOrderItem = Omit<OrderItemRow, 'id' | 'order_id' | 'image_url'>;
+export type NewOrderItem = Omit<OrderItemRow, 'id' | 'order_id' | 'image_url' | 'restaurant'>;
 
 const GROUP_SQL: Record<OrderGroup, string> = {
   live: "status = 'live'",
@@ -116,7 +117,7 @@ export class OrderRepository {
   items(orderIds: number[]): OrderItemRow[] {
     if (!orderIds.length) return [];
     return this.db
-      .prepare(`SELECT oi.*, p.image_url FROM order_items oi LEFT JOIN products p ON p.id = oi.product_id
+      .prepare(`SELECT oi.*, p.image_url, p.restaurant FROM order_items oi LEFT JOIN products p ON p.id = oi.product_id
          WHERE oi.order_id IN (${orderIds.map(() => '?').join(', ')}) ORDER BY oi.id`)
       .all(...orderIds) as OrderItemRow[];
   }
